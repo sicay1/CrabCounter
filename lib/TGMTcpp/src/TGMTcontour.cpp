@@ -14,16 +14,14 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-cv::Mat TGMTcontour::DrawContours(const cv::Mat matInput, std::vector<TGMTcontour::Contour> contours, cv::Scalar color, int thickness)
+void TGMTcontour::DrawContours(cv::Mat matInput, std::vector<TGMTcontour::Contour> contours, cv::Scalar color, int thickness)
 {
-	cv::Mat matDraw = matInput.clone();	
-	if (matDraw.channels() == 1)
-		cv::cvtColor(matDraw, matDraw, CV_GRAY2BGR);
+	if (matInput.channels() == 1)
+		cv::cvtColor(matInput, matInput, CV_GRAY2BGR);
 	for (int i = 0; i < contours.size(); ++i)
 	{
-		cv::drawContours(matDraw, contours, i, color == UNDEFINED_COLOR ? TGMTcolor::GetRandomColor() : color, thickness);
+		cv::drawContours(matInput, contours, i, color == UNDEFINED_COLOR ? TGMTcolor::GetRandomColor() : color, thickness);
 	}
-	return matDraw;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -45,7 +43,7 @@ void TGMTcontour::DetectAndDrawContour(cv::Mat matInput, cv::Size minSize, cv::S
 		cv::cvtColor(mat, mat, CV_GRAY2BGR);
 
 	std::vector<Contour> contours = FindContours(matInput, false, minSize, maxSize);
-	mat = DrawContours(mat, contours, UNDEFINED_COLOR);
+	DrawContours(mat, contours, UNDEFINED_COLOR);
 	cv::imshow("DetectAndDrawContour", mat);
 }
 

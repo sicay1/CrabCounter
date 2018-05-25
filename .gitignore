@@ -32,3 +32,13 @@
 *.app
 /CrabCounter/obj
 /lib/opencv320/modules/imgcodecs/opencv_imgcodecs.dir/Debug/*.log
+*.exp
+*.iobj
+*.ipdb
+*.pdb
+*.ilk
+*.db
+*.log
+*.tlog
+*.idb
+*.opendb
