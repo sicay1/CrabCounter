@@ -183,8 +183,8 @@ int CrabCounter::CountPepperCrab(cv::Mat &matInput)
 		cv::cvtColor(matInput, matInput, CV_GRAY2BGR);
 	}
 	
-	matInput = TGMTcontour::DrawContours(matInput, contours, m_color, m_drawSolid);
-	matInput = TGMTdraw::PutText(matInput, cv::Point(0, 30), RED, "%d", contours.size());
+	TGMTcontour::DrawContours(matInput, contours, m_color, m_drawSolid);
+	TGMTdraw::PutText(matInput, cv::Point(0, 30), RED, "%d", contours.size());
 	cv::imshow("Output", matInput);
 
 	return contours.size();
@@ -277,8 +277,8 @@ int CrabCounter::CountMelonCrab(cv::Mat& img)
 
 	contours = ClampContourByArea(contours, m_minSize, m_maxSize);
 
-	img = TGMTcontour::DrawContours(img, contours, m_color, m_drawSolid);
-	img = TGMTdraw::PutText(img, cv::Point(0, 30), RED, "%d", contours.size());
+	TGMTcontour::DrawContours(img, contours, m_color, m_drawSolid);
+	TGMTdraw::PutText(img, cv::Point(0, 30), RED, "%d", contours.size());
 	cv::imshow("output", img);
 	
 	return contours.size();

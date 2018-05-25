@@ -26,7 +26,7 @@ void _tmain(int argc, _TCHAR* argv[])
 	if (images.size() == 0)
 	{
 		PrintError("Can not load any image in dir: %s", dir.c_str());
-		StopProgram
+		return;
 	}
 	else
 	{
@@ -43,6 +43,7 @@ void _tmain(int argc, _TCHAR* argv[])
 		WriteImageAsync(mat, "output\\%s_detected.jpg", TGMTfile::GetFileNameWithoutExtension(images[i]).c_str());
 	}
 
-	StopProgram
+	cv::waitKey();
+	getchar();
 }
 
