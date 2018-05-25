@@ -44,10 +44,10 @@
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTConfig.h">
       <Filter>TGMTcpp</Filter>
     </ClInclude>
-    <ClInclude Include="CrabCounter.h">
+    <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
+    <ClInclude Include="ParticleCounter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -83,7 +83,7 @@
       <Filter>TGMTcpp</Filter>
     </ClCompile>
     <ClCompile Include="WinMain.cpp" />
-    <ClCompile Include="CrabCounter.cpp" />
+    <ClCompile Include="ParticleCounter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="CrabCounter.rc">

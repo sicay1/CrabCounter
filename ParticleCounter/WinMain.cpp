@@ -1,8 +1,8 @@
-// CrabCounter.cpp : Defines the entry point for the console application.
+// ParticleCounter.cpp : Defines the entry point for the console application.
 //
 
 #include "stdafx.h"
-#include "CrabCounter.h"
+#include "ParticleCounter.h"
 #include <tchar.h>
 #include "TGMTdraw.h"
 #include "TGMTdebugger.h"
@@ -16,7 +16,7 @@ void _tmain(int argc, _TCHAR* argv[])
 {
 	GetTGMTConfig()->LoadSettingFromFile();
 
-	std::string dir = GetTGMTConfig()->ReadValueString("crabcounter", "dir");
+	std::string dir = GetTGMTConfig()->ReadValueString("ParticleCounter", "dir");
 	if (dir.empty())
 		dir = TGMTfile::GetCurrentDir();
 
@@ -37,7 +37,7 @@ void _tmain(int argc, _TCHAR* argv[])
 	for (int i = 0; i < images.size(); i++)
 	{
 		cv::Mat mat = cv::imread(images[i]);
-		int count = GetCrabCounter()->CountCrab(mat);
+		int count = GetParticleCounter()->CountParticle(mat);
 		std::cout << images[i].c_str() << ": " << count << "\n";
 		
 		WriteImageAsync(mat, "output\\%s_detected.jpg", TGMTfile::GetFileNameWithoutExtension(images[i]).c_str());
